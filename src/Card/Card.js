@@ -20,9 +20,9 @@ class Card extends React.Component {
 }
 
 Card.propTypes = {
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     avatar_url: PropTypes.string.isRequired,
-    company: PropTypes.string.isRequired
+    company: PropTypes.string
 }
 
 export default Card;

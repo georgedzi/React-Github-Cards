@@ -1,12 +1,15 @@
+import axios from "axios";
 import React from "react";
-
+import PropTypes from 'prop-types';
 
 class Form extends React.Component {
 
-    state = { userName: '' }; // is this example of hook?
-    handleSubmit = (event) => {
+    state = { userName: '' };
+    handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(this.state.userName)
+        const resp = await axios.get(`https://api.github.com/users/${this.state.userName}`)
+        this.props.onSubmit(resp.data);
+        this.setState({userName: ""})
     };
 
     render() {
@@ -24,5 +27,8 @@ class Form extends React.Component {
     }
 }
 
+Form.propTypes = {
+    onSubmit: PropTypes.func
+}
 
 export default Form

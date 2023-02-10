@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 function CardList(props) {
     return (
         <div>
-            {props.profiles.map((profile, index) => <Card key={index}  {...profile} />)}
+            {props.profiles.map((profile) => <Card key={profile.id}  {...profile} />)}
         </div>
     )
 }
